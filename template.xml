@@ -1,15 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'>&lt;!--/**
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>&lt;!--/**
 *
 * Created By Anas RAR
-* NihLink Beta Version
+* NihLink v2.0.1
 * Author : Anas RAR
-* Date	 : 	25 April 2018
-* URL 	 : anasrar.blogspot.com
+* Date	 : 	4 April 2019
+* URL 	 : anasrar.github.io
 *
 */<head>--&gt;<b:include name='body'/>&lt;head&gt;
 
-<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=yes, maximum-scale=1' />
+<meta content='width=device-width, initial-scale=1, user-scalable=yes, maximum-scale=1' name='viewport'/>
 <b:if cond='data:blog.pageType == &quot;error_page&quot;'>
   <title>Page Not Found - <data:blog.title/></title>
 <b:else/>
@@ -17,52 +18,81 @@
 </b:if>
 <b:include data='blog' name='all-head-content'/>
 
-<link crossorigin='anonymous' href='//stackpath.bootstrapcdn.com/bootswatch/4.1.2/flatly/bootstrap.min.css' integrity='sha384-dc511usETkt5R6evFzyWPo3GCQkG+8t+K2KZ9TUeGbisOmqJGXf4j8fLCRoK9r1N' rel='stylesheet'/>
+<link crossorigin='anonymous' href='//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'/>
 <link href='//use.fontawesome.com/releases/v5.0.10/css/all.css' rel='stylesheet' type='text/css'/>
 <script src='//code.jquery.com/jquery-2.1.4.min.js' type='text/javascript'/>
-<script src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/js/bootstrap.bundle.min.js'/>
+<script src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js'/>
+<script src='//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js'/>
 
 <script type='text/javascript'>
-"use strict";
+&quot;use strict&quot;;
 $(document).ready(function() {
   (function(W,D){
     W.asli_config = {
-      url: "",
-      page: "p/lanjut.html",
-      output: "#output",
+      url: &#39;&#39;,
+      page: &#39;p/lanjut.html&#39;,
+      output: &#39;#output&#39;,
+      defaultkey: &#39;AnasRAR&#39;,
       fixednavbar: false,
       lang: {
-        urlempty: "URL can not empty",
-        convertsuccess: "Convert URL success, copy url on box below",
-        validtext: "HTTP, HTTPS, or WWW",
-        gourltext: "coba di klik linknya pak",
-        nourl: "nggapain pak ??, cari link ??",
-        errorconvert: "URL can not to convert"
+        urlempty: &quot;URL can not empty&quot;,
+        convertsuccess: &quot;Convert URL success, copy url on box below&quot;,
+        validtext: &quot;HTTP, HTTPS, or WWW&quot;,
+        gourltext: &quot;coba di klik linknya pak&quot;,
+        nourl: &quot;nggapain pak ??, linknya nggak ada&quot;,
+        errorconvert: &quot;URL can not to convert&quot;,
+        emptypass: &quot;Password can not empty&quot;,
+        wrongpass: &quot;Password is incorrect&quot;
       }
     }
-
-    var _0x1bd9=[&#39;indexOf&#39;,&#39;%6c%6f%63%61%74%69%6f%6e%2e%68%72%65%66%20%3d%20%27%2f%2f%61%6e%61%73%72%61%72%2e%62%6c%6f%67%73%70%6f%74%2e%63%6f%6d%27%3b&#39;,&#39;fromCharCode&#39;,&#39;validurlit&#39;,&#39;test&#39;,&#39;querySelector&#39;,&#39;style&#39;,&#39;height&#39;,&#39;_GET&#39;,&#39;replace&#39;,&#39;[\x5c?&amp;]&#39;,&#39;=([^&amp;#]*)&#39;,&#39;exec&#39;,&#39;b64&#39;,&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=&#39;,&#39;length&#39;,&#39;charCodeAt&#39;,&#39;charAt&#39;,&#39;join&#39;,&#39;slice&#39;];(function(_0x107569,_0x4d241f){var _0x40f618=function(_0x3d3ced){while(--_0x3d3ced){_0x107569[&#39;push&#39;](_0x107569[&#39;shift&#39;]());}};_0x40f618(++_0x4d241f);}(_0x1bd9,0x106));var _0x3456=function(_0x38a3ce,_0x1798b6){_0x38a3ce=_0x38a3ce-0x0;var _0x213f96=_0x1bd9[_0x38a3ce];return _0x213f96;};var xv=$(String[_0x3456(&#39;0x0&#39;)](0x66,0x6f,0x6f,0x74,0x65,0x72,0x20,0x3e,0x20,0x2e,0x64,0x2d,0x74,0x61,0x62,0x6c,0x65,0x20,0x3e,0x20,0x2e,0x64,0x2d,0x74,0x61,0x62,0x6c,0x65,0x2d,0x72,0x6f,0x77,0x20,0x3e,0x20,0x2e,0x64,0x2d,0x74,0x61,0x62,0x6c,0x65,0x2d,0x63,0x65,0x6c,0x6c,0x20,0x3e,0x20,0x2e,0x63,0x6f,0x6e,0x74,0x61,0x69,0x6e,0x65,0x72,0x20,0x3e,0x20,0x2e,0x72,0x6f,0x77,0x20,0x3e,0x20,0x2e,0x63,0x6f,0x6c,0x2d,0x73,0x6d,0x2d,0x37,0x20,0x3e,0x20,0x61,0x23,0x6e,0x61,0x61,0x73));if(xv[&#39;length&#39;]){W[_0x3456(&#39;0x1&#39;)]=function(_0x3dc387){return/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&amp;=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&amp;=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&amp;;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/[_0x3456(&#39;0x2&#39;)](_0x3dc387);};W[&#39;sUp&#39;]=function(_0x223fa1){D[_0x3456(&#39;0x3&#39;)](_0x223fa1)[&#39;parentNode&#39;][_0x3456(&#39;0x4&#39;)][_0x3456(&#39;0x5&#39;)]=&#39;0&#39;;};W[_0x3456(&#39;0x6&#39;)]=function(_0x29cf05,_0x13c85e){if(!_0x13c85e)_0x13c85e=location[&#39;href&#39;];_0x29cf05=_0x29cf05[_0x3456(&#39;0x7&#39;)](/[\[]/,&#39;\x5c[&#39;)[_0x3456(&#39;0x7&#39;)](/[\]]/,&#39;\x5c]&#39;);var _0x11cba3=_0x3456(&#39;0x8&#39;)+_0x29cf05+_0x3456(&#39;0x9&#39;);var _0x81709f=new RegExp(_0x11cba3);var _0x858200=_0x81709f[_0x3456(&#39;0xa&#39;)](_0x13c85e);return _0x858200==null?null:_0x858200[0x1];};W[_0x3456(&#39;0xb&#39;)]={&#39;s&#39;:_0x3456(&#39;0xc&#39;),&#39;en&#39;:function(_0x2f33bb){if(/([^\u0000-\u00ff])/[_0x3456(&#39;0x2&#39;)](_0x2f33bb))throw Error(&#39;String\x20must\x20be\x20ASCII&#39;);var _0x5527d0=this[&#39;s&#39;];var _0x4003ae,_0x5eba55,_0xd18653,_0x1f4d24,_0x583e06,_0x38064e,_0x3db506,_0x109aa6,_0x3dca72=[],_0x1d7793=&#39;&#39;,_0xea2ac3;_0xea2ac3=_0x2f33bb[_0x3456(&#39;0xd&#39;)]%0x3;if(_0xea2ac3&gt;0x0){while(_0xea2ac3++&lt;0x3){_0x1d7793+=&#39;=&#39;;_0x2f33bb+=&#39;&#39;;}}for(_0xea2ac3=0x0;_0xea2ac3&lt;_0x2f33bb[_0x3456(&#39;0xd&#39;)];_0xea2ac3+=0x3){_0x4003ae=_0x2f33bb[_0x3456(&#39;0xe&#39;)](_0xea2ac3);_0x5eba55=_0x2f33bb[_0x3456(&#39;0xe&#39;)](_0xea2ac3+0x1);_0xd18653=_0x2f33bb[_0x3456(&#39;0xe&#39;)](_0xea2ac3+0x2);_0x1f4d24=_0x4003ae&lt;&lt;0x10|_0x5eba55&lt;&lt;0x8|_0xd18653;_0x583e06=_0x1f4d24&gt;&gt;0x12&amp;0x3f;_0x38064e=_0x1f4d24&gt;&gt;0xc&amp;0x3f;_0x3db506=_0x1f4d24&gt;&gt;0x6&amp;0x3f;_0x109aa6=_0x1f4d24&amp;0x3f;_0x3dca72[_0xea2ac3/0x3]=_0x5527d0[_0x3456(&#39;0xf&#39;)](_0x583e06)+_0x5527d0[_0x3456(&#39;0xf&#39;)](_0x38064e)+_0x5527d0[_0x3456(&#39;0xf&#39;)](_0x3db506)+_0x5527d0[_0x3456(&#39;0xf&#39;)](_0x109aa6);}_0x2f33bb=_0x3dca72[_0x3456(&#39;0x10&#39;)](&#39;&#39;);_0x2f33bb=_0x2f33bb[_0x3456(&#39;0x11&#39;)](0x0,_0x2f33bb[&#39;length&#39;]-_0x1d7793[_0x3456(&#39;0xd&#39;)])+_0x1d7793;return _0x2f33bb;},&#39;de&#39;:function(_0x24e8fe){if(!/^[a-z0-9+\/]+={0,2}$/i[_0x3456(&#39;0x2&#39;)](_0x24e8fe)||_0x24e8fe[_0x3456(&#39;0xd&#39;)]%0x4!=0x0){return![];}var _0x24e938=this[&#39;s&#39;];var _0x141a17,_0x1ca7a3,_0x1bb4c1,_0x8c1319,_0x420245,_0x4bcfe4,_0x281219,_0x1c3243,_0x34c2f4=[];for(var _0x1222b6=0x0;_0x1222b6&lt;_0x24e8fe[_0x3456(&#39;0xd&#39;)];_0x1222b6+=0x4){_0x8c1319=_0x24e938[_0x3456(&#39;0x12&#39;)](_0x24e8fe[_0x3456(&#39;0xf&#39;)](_0x1222b6));_0x420245=_0x24e938[_0x3456(&#39;0x12&#39;)](_0x24e8fe[_0x3456(&#39;0xf&#39;)](_0x1222b6+0x1));_0x4bcfe4=_0x24e938[&#39;indexOf&#39;](_0x24e8fe[&#39;charAt&#39;](_0x1222b6+0x2));_0x281219=_0x24e938[_0x3456(&#39;0x12&#39;)](_0x24e8fe[_0x3456(&#39;0xf&#39;)](_0x1222b6+0x3));_0x1c3243=_0x8c1319&lt;&lt;0x12|_0x420245&lt;&lt;0xc|_0x4bcfe4&lt;&lt;0x6|_0x281219;_0x141a17=_0x1c3243&gt;&gt;&gt;0x10&amp;0xff;_0x1ca7a3=_0x1c3243&gt;&gt;&gt;0x8&amp;0xff;_0x1bb4c1=_0x1c3243&amp;0xff;_0x34c2f4[_0x1222b6/0x4]=String[_0x3456(&#39;0x0&#39;)](_0x141a17,_0x1ca7a3,_0x1bb4c1);if(_0x281219==0x40)_0x34c2f4[_0x1222b6/0x4]=String[_0x3456(&#39;0x0&#39;)](_0x141a17,_0x1ca7a3);if(_0x4bcfe4==0x40)_0x34c2f4[_0x1222b6/0x4]=String[&#39;fromCharCode&#39;](_0x141a17);}_0x24e8fe=_0x34c2f4[_0x3456(&#39;0x10&#39;)](&#39;&#39;);return _0x24e8fe;}};eval(unescape(&#39;%78%76%2e%61%74%74%72%28%27%68%72%65%66%27%2c%20%27%2f%2f%61%6e%61%73%72%61%72%2e%62%6c%6f%67%73%70%6f%74%2e%63%6f%6d%27%29%2e%74%65%78%74%28%27%41%6e%61%73%20%52%41%52%27%29%3b&#39;));}else{eval(unescape(_0x3456(&#39;0x13&#39;)));}
+    var xv = $(&#39;footer &gt; .d-table &gt; .d-table-row &gt; .d-table-cell &gt; .container &gt; .row &gt; .col-sm-7 &gt; a#naas&#39;);
+    if(xv.length){
+      W.validurlit = function (ur) {
+        return /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&amp;=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&amp;=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&amp;;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/.test(ur);
+      }
+      W.sUp = function(el) {
+        D.querySelector(el).parentNode.style.height = &#39;0&#39;;
+      }
+      W._GET = function(name, url) {
+        if (!url) url = location.href;
+        name = name.replace(/[\[]/,&quot;\\\[&quot;).replace(/[\]]/,&quot;\\\]&quot;);
+        var regexS = &quot;[\\?&amp;]&quot;+name+&quot;=([^&amp;#]*)&quot;;
+        var regex = new RegExp( regexS );
+        var results = regex.exec( url );
+        return results == null ? null : results[1];
+      }
+      xv.attr(&#39;href&#39;, &#39;//anasrar.blogspot.com&#39;).text(&#39;Anas RAR&#39;);
+    } else {
+      location.href = &#39;//anasrar.blogspot.com&#39;;
+    }
   }(window,document));
 });
 </script>
 
-<b:skin version='1.0.0'>
-<![CDATA[
+<b:skin version='1.0.0'><![CDATA[
+
 
 /* LAYOUT WIDGET */
 body#layout {width:100%}
 body#layout ul {display: none;}
 body#layout .layouthide {display:none}
 
-]]>
-</b:skin>
 
-<style type="text/css">
-	/* WIDGET */
-	.widget,.section{margin:0}
-	.widget li{padding:0}
-	.widget ul{padding:0;margin:0;}
+]]></b:skin>
 
+<b:template-skin><![CDATA[
+body#layout:before{content:"NihLink v2.0.1";position:absolute;top:33px;right:7px;z-index:1;padding:10px 20px;font-size:18px;font-family:sans-serif;color:#fff;background: #007bff}
+body#layout {background-color: #fff; border: 0}
+body#layout div.section {background-color: #fff}
+body#layout .add_widget a {color: #007bff}
+body#layout .row:after {content:'';clear:both;display:block}
+body#layout .isHideLayout {display:none;}
+body#layout .col-md-3 {float:left;width:30%;}
+body#layout .col-md-6 {float:left;width:40%;}
+body#layout #page-setting {background: #fffcf2}
+]]></b:template-skin>
+
+<style type='text/css'>
 	/* FIX */
 	.hidden{visibility:hidden;height:0;overflow:hidden;display:none}
 	.clear, .clearfix{clear:both}
@@ -105,7 +135,7 @@ body#layout .layouthide {display:none}
 	  bottom: 0;
 	  left: 0;
 	  right: 0;
-	  content: '';
+	  content: &#39;&#39;;
 	  background: linear-gradient(180deg, transparent, white 70%);
 	  width: 100%;
 	  height: 5vh;
@@ -120,10 +150,13 @@ body#layout .layouthide {display:none}
 	}
 	footer.footer {
 	  height: 120px;
-	  background-color: #ececec;
-	  border-top: 1px solid #dcdcdc;
+	  background-color: #ffffff;
+	  border-top: 1px solid #dee2e6;
 	}
-  @media (max-width: 767px) {
+	.sticky-top {
+	  top: calc(60px + 1rem)
+    }
+	@media (max-width: 767px) {
     .order-custom {
         -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
@@ -138,11 +171,11 @@ body#layout .layouthide {display:none}
 <div id='fullpage'>
   <div class='container-semifluid'>
     <div class='holder'>
-      <nav class='navbar navbar-expand navbar-dark bg-primary py-2' data-type='fixednav'>
+      <nav class='navbar navbar-expand border-bottom bg-white py-2' data-type='fixednav'>
         <div class='container'>
           <a class='navbar-brand' expr:href='data:blog.homepageUrl'><data:blog.title/></a>
           <button aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler' data-target='#navbarSupportedContent' data-toggle='collapse' type='button'>
-            <span class='navbar-toggler-icon'></span>
+            <span class='navbar-toggler-icon'/>
           </button>
 
           <div class='collapse navbar-collapse justify-content-end' id='navbarSupportedContent'>
@@ -152,11 +185,9 @@ body#layout .layouthide {display:none}
                   Menu
                 </a>
                 <ul aria-labelledby='navbarDropdown' class='dropdown-menu dropdown-menu-right' itemprop='mainEntity' itemscope='itemscope' itemtype='http://schema.org/SiteNavigationElement'>
-                  <li class='dropdown-item'><a href='https://nihlink.blogspot.com/p/about.html' itemprop='url' title='About'><span itemprop='name'>About</span></a></li>
-                  <li class='dropdown-item'><a href='https://nihlink.blogspot.com/p/docs.html' itemprop='url' title='Documents'><span itemprop='name'>Documents</span></a></li>
-                  <li class='dropdown-item'><a href='https://nihlink.blogspot.com/p/download.html' itemprop='url' title='Download'><span itemprop='name'>Download</span></a></li>
-                  <div class='dropdown-divider'></div>
-                  <li class='dropdown-item'><a href='//anasrar.blogspot.com' itemprop='url' title='My Blog'><span itemprop='name'>My Blog</span></a></li>
+                  <li class='dropdown-item'><a href='//github.com/anasrar/NihLink-Safelink-Template-Blogger' itemprop='url' title='Documentation'><span itemprop='name'>Documentation</span></a></li>
+                  <div class='dropdown-divider'/>
+                  <li class='dropdown-item'><a href='//anasrar.github.io/blog/' itemprop='url' title='My Blog'><span itemprop='name'>My Blog</span></a></li>
                 </ul>
               </li>
             </ul>
@@ -165,25 +196,34 @@ body#layout .layouthide {display:none}
       </nav>
     </div>
     <div class='container py-3'>
-      <div id='isihalaman' class='d-relative'>
+      <div id='isihalaman'>
 
 
         <b:section class='page-setting' cond='!data:view.isPreview' id='page-setting' maxwidgets='1'>
-          <b:widget id='HTML696' locked='true' title='setting' type='HTML' version='2' visible='true'>
+          <b:widget id='HTML696' locked='false' title='setting' type='HTML' version='2' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='content'><![CDATA[<script type="text/javascript">
-  "use strict";
+              <b:widget-setting name='content'>&lt;script type=&quot;text/javascript&quot;&gt;
+  &quot;use strict&quot;;
   $(document).ready(function() {
     window.new_config = {
-      url: "",
-      page: "p/lanjut.html",
-      output: "#output",
+      url: &quot;&quot;,
+      page: &quot;p/lanjut.html&quot;,
+      output: &quot;#output&quot;,
       fixednavbar: true,
+      lang: {
+        urlempty: &quot;URL can not be empty&quot;,
+        convertsuccess: &quot;Convert URL success, copy url on box below&quot;,
+        validtext: &quot;HTTP, HTTPS, or WWW&quot;,
+        gourltext: &quot;Click here to go&quot;,
+        nourl: &quot;No URl here&quot;,
+        errorconvert: &quot;URL can not to convert&quot;,
+        emptypass: &quot;Password can not be empty&quot;,
+        wrongpass: &quot;Password is incorrect&quot;
+      }
     }
     window.config = $.extend({}, asli_config, new_config);
     });
-</script>]]>
-              </b:widget-setting>
+&lt;/script&gt;</b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
               <data:content/>
@@ -191,48 +231,74 @@ body#layout .layouthide {display:none}
           </b:widget>
         </b:section>
 
-        <div class='row' id='kehalaman'>
 
-          <div class="col-12 col-md-3 mb-3 order-custom" id="side-left">
-            <b:section class='ads-left' cond='!data:view.isPreview' id='ads-left' maxwidgets='1'>
-      				<b:widget id='HTML602' locked='true' title='left-sidebar-ads' type='HTML' version='2' visible='true'>
-      					<b:widget-settings>
-      						<b:widget-setting name='content'><![CDATA[<img src="//dummyimage.com/700x700/ccc/777.png&text=+++ADS+++" alt="text=ads" title="ads" class="d-block w-100 mb-3" /><img src="//dummyimage.com/700x700/ccc/777.png&text=+++ADS+++" alt="text=ads" title="ads" class="d-block w-100 mb-3" />]]></b:widget-setting>
-      					</b:widget-settings>
-      					<b:includable id='main'>
+        <div class='row'>
+
+          <div class='col-12 col-md-3 mb-3'>
+            <b:section class='ads-left sticky-top' cond='!data:view.isPreview' id='ads-left' maxwidgets='1'>
+              <b:widget id='HTML602' locked='false' title='left-sidebar-ads' type='HTML' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='content'><![CDATA[<img src="//dummyimage.com/700x700/ccc/777.png&text=+++ADS+++" alt="text=ads" title="ads" class="d-block w-100 mb-3" /><img src="//dummyimage.com/700x700/ccc/777.png&text=+++ADS+++" alt="text=ads" title="ads" class="d-block w-100 mb-3" />]]></b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
       						<b:if cond='data:view.isSingleItem'>
       							<data:content/>
       						</b:if>
       					</b:includable>
-      				</b:widget>
-      			</b:section>
+              </b:widget>
+            </b:section>
           </div>
 
 
-          <div class='col-12 col-md-6 mb-3'>
+          <div class='col-12 col-md-6 pb-3'>
 
 
             <b:if cond='data:blog.pageType == &quot;error_page&quot;'>
-              <div class="text-center" style="font-size: 11vw">Oppss...</div>
-              <div class="text-center" style="font-size: 8vw">Page not found</div>
+              <div class='text-center' style='font-size: 7vw'>Oppss...</div>
+              <div class='text-center' style='font-size: 3vw'>Page not found</div>
             </b:if>
 
 
             <b:if cond='data:view.isSingleItem'>
-              <script type="text/javascript">
-                "use strict";
+              <script type='text/javascript'>
+                &quot;use strict&quot;;
                 $(document).ready(function(){
-                  if (_GET('u') &amp;&amp; $(config.output).length) {
-                    if (b64.de(decodeURIComponent(_GET('u')))) {
-                      $(config.output)[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;a class=&quot;text-center&quot; href=&quot;&#39;+b64.de(decodeURIComponent(_GET('u')))+&#39;&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/a&gt;&lt;/div&gt;&#39;;
+                  $(document).on(&#39;submit&#39;, &#39;#locked&#39;, function(e) {
+                    e.preventDefault();
+                    var $this = $(this),
+                    parent = $this.parent(),
+                    report = parent.find(&#39;#report&#39;),
+                    passin = $(&#39;#passin&#39;);
+
+                    if (passin[0].value.length) {
+                      if (CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), passin[0].value).toString().length) {
+                        report[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;a href=&quot;&#39;+CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), passin[0].value).toString(CryptoJS.enc.Utf8)+&#39;&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/a&gt;&lt;/div&gt;&#39;;
+                        $this.find(&#39;button, input&#39;).attr(&#39;disabled&#39;, &#39;disabled&#39;);
+                        $this.slideUp(&#39;slow&#39;);
+                      } else {
+                        report[0].innerHTML = &#39;&lt;div class=&quot;alert alert-danger text-center&quot;&gt;&#39;+config.lang.wrongpass+&#39;&lt;/div&gt;&#39;;
+                      }
                     } else {
-                      $(config.output)[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&#39;+config.lang.errorconvert+&#39;&lt;/div&gt;&#39;;
+                      report[0].innerHTML = &#39;&lt;div class=&quot;alert alert-danger text-center&quot;&gt;&#39;+config.lang.emptypass+&#39;&lt;/div&gt;&#39;;
+                    }
+
+                    setTimeout(function(){
+                      report[0].parentNode.style.height = report[0].offsetHeight+&#39;px&#39;;
+                    }, 0);
+                  });
+
+
+                  if (_GET(&#39;u&#39;) &amp;&amp; $(config.output).length) {
+                    if (CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), config.defaultkey).toString().length) {
+                      $(config.output)[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;a class=&quot;text-center&quot; href=&quot;&#39;+CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), config.defaultkey).toString(CryptoJS.enc.Utf8)+&#39;&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/a&gt;&lt;/div&gt;&#39;;
+                    } else {
+                      $(config.output)[0].innerHTML = &#39;&lt;form class=&quot;form-group&quot; id=&quot;locked&quot;&gt;&lt;div class=&quot;input-group&quot;&gt;&lt;div class=&quot;input-group-prepend&quot;&gt;&lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-lock fa-fw&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;input class=&quot;form-control&quot; name=&quot;pass&quot; type=&quot;password&quot; id=&quot;passin&quot; onclick=&quot;sUp(\&#39;#report\&#39;)&quot; onkeypress=&quot;sUp(\&#39;#report\&#39;)&quot; aria-label=&quot;Password&quot; /&gt;&lt;div class=&quot;input-group-append&quot;&gt;&lt;button class=&quot;btn btn-primary&quot; type=&quot;submit&quot;&gt;Unlock&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/form&gt;&lt;section class=&quot;trans&quot; style=&quot;overflow: hidden;height: 0&quot;&gt;&lt;div id=&quot;report&quot;&gt;&lt;/div&gt;&lt;/section&gt;&#39;;
                     }
                   } else {
                     if($(config.output).length){
-                      $(config.output)[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/div&gt;&#39;;
+                      $(config.output)[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&#39;+config.lang.nourl+&#39;&lt;/div&gt;&#39;;
                     } else {
-                      console.log('Not found output element, are you sure you this is not safelink page ??');
+                      console.log(&#39;Not found output element, are you sure you this is not safelink page ??&#39;);
                     }
                   }
                 });
@@ -245,32 +311,55 @@ body#layout .layouthide {display:none}
                 <form autocomplete='off' class='form-group' id='safelink'>
                   <div class='input-group mb-0'>
                     <div class='input-group-prepend'>
-                      <span class='input-group-text'><i class='fas fa-link fa-fw'></i></span>
+                      <span class='input-group-text'><i class='fas fa-link fa-fw'/></span>
                     </div>
-                    <input class='form-control' id='urlinput' onclick="sUp('#result')" onkeypress="sUp('#result')" placeholder='HTTP, HTTPS, or WWW' type='text' />
+                    <input class='form-control' id='urlinput' onclick='sUp(&apos;#result&apos;)' onkeypress='sUp(&apos;#result&apos;)' placeholder='HTTP, HTTPS, or WWW' type='text'/>
                     <div class='input-group-append'>
-                      <button class='btn btn-success' type='submit'>Convert</button>
+                      <button class='btn btn-primary' type='submit'>Convert</button>
                     </div>
                   </div>
                 </form>
               </section>
 
-              <section class='trans' style='overflow: hidden;height: 0'>
-                <div id='result'></div>
+              <section>
+                <div class='row mb-3'>
+                  <div class='col-3'>
+                    <button class='btn btn-dark btn-block' id='passbtn' onclick='sUp(&apos;#result&apos;)'>Password</button>
+                  </div>
+                  <div class='col-9'>
+                    <div class='input-group mb-0'>
+                      <div class='input-group-prepend'>
+                        <span class='input-group-text'><i class='fas fa-lock fa-fw'/></span>
+                      </div>
+                      <input class='form-control' disabled='disabled' id='passinput' onclick='sUp(&apos;#result&apos;)' onkeypress='sUp(&apos;#result&apos;)' type='text'/>
+                    </div>
+                  </div>
+                </div>
               </section>
 
-              <section class="layouthide">
+              <section class='trans' style='overflow: hidden;height: 0'>
+                <div id='result'/>
+              </section>
+
+              <section class='layouthide'>
                 <div class='row text-center mb-3' style='margin-top:20%'>
-                  <div class='col-12 col-sm-6'>
+                  <div class='col-12 col-sm-4'>
                     <div style='height: 60px; overflow: hidden'>
-                      <i class='fas fa-eye fa-fw fa-3x'></i>
+                      <i class='fas fa-eye fa-fw fa-3x'/>
                     </div>
                     <h5>Encrypt</h5>
                     <p>Make your url unreadable and no one can bypass</p>
                   </div>
-                  <div class='col-12 col-sm-6'>
+                  <div class='col-12 col-sm-4'>
                     <div style='height: 60px; overflow: hidden'>
-                      <i class='fas fa-cogs fa-fw fa-3x'></i>
+                      <i class='fas fa-lock fa-fw fa-3x'/>
+                    </div>
+                    <h5>Password</h5>
+                    <p>Set a password to protect your links from unauthorized access</p>
+                  </div>
+                  <div class='col-12 col-sm-4'>
+                    <div style='height: 60px; overflow: hidden'>
+                      <i class='fas fa-cogs fa-fw fa-3x'/>
                     </div>
                     <h5>Setting</h5>
                       <p>Easy to setting without need to know programming language</p>
@@ -279,36 +368,38 @@ body#layout .layouthide {display:none}
               </section>
 
               <script type='text/javascript'>
-              "use strict";
+              &quot;use strict&quot;;
                 $(document).ready(function() {
-                  $('#passbtn').on('click', function(e) {
+                  $(&#39;#passbtn&#39;).on(&#39;click&#39;, function(e) {
                     var $this = $(this);
-                      if($this.hasClass('btn-dark')){
-                        $this.removeClass('btn-dark').addClass('btn-success');
-                        $('#passinput').removeAttr('disabled');
+                      if($this.hasClass(&#39;btn-dark&#39;)){
+                        $this.removeClass(&#39;btn-dark&#39;).addClass(&#39;btn-primary&#39;);
+                        $(&#39;#passinput&#39;).removeAttr(&#39;disabled&#39;);
                       } else {
-                        $this.removeClass('btn-success').addClass('btn-dark');
-                        $('#passinput').attr('disabled', 'disabled')[0].value = '';
+                        $this.removeClass(&#39;btn-success&#39;).addClass(&#39;btn-dark&#39;);
+                        $(&#39;#passinput&#39;).attr(&#39;disabled&#39;, &#39;disabled&#39;)[0].value = &#39;&#39;;
                       }
                     e.preventDefault();
                   });
 
-                  $('#safelink').on('submit', function(e) {
+                  $(&#39;#safelink&#39;).on(&#39;submit&#39;, function(e) {
                     e.preventDefault();
                     var $this = $(this),
-                    blog = config.url.length ? config.url : window.location.protocol + "//" + window.location.hostname,
-                    url = $this.find('#urlinput')[0],
-                    result = $('#result')[0];
+                    passinput = $(&#39;#passinput&#39;)[0],
+                    keyit = passinput.value.length ? passinput.value : config.defaultkey,
+                    blog = config.url.length ? config.url : window.location.protocol + &quot;//&quot; + window.location.hostname,
+                    url = $this.find(&#39;#urlinput&#39;)[0],
+                    result = $(&#39;#result&#39;)[0];
 
                     if (url.value.length) {
-                      result.innerHTML = validurlit(url.value) ? &#39;&lt;div class=&quot;alert alert-success text-center&quot;&gt;&#39;+config.lang.convertsuccess+&#39;&lt;/div&gt;&lt;div class=&quot;input-group mb-0&quot;&gt;&lt;div class=&quot;input-group-prepend&quot;&gt;&lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-copy fa-fw&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;input class=&quot;form-control&quot; onfocus="this.select()" onmouseup="return false" style=&quot;box-shadow: 0 0 0 0 transparent&quot; value=&quot;&#39;+blog+&#39;/&#39;+config.page+&#39;?u=&#39;+encodeURIComponent(b64.en(url.value))+&#39;&quot;/&gt;&lt;/div&gt;&#39; : &#39;&lt;div class=&quot;alert alert-warning text-center&quot;&gt;&#39;+config.lang.validtext+&#39;&lt;/div&gt;&#39; ;
+                      result.innerHTML = validurlit(url.value) ? &#39;&lt;div class=&quot;alert alert-success text-center&quot;&gt;&#39;+config.lang.convertsuccess+&#39;&lt;/div&gt;&lt;div class=&quot;input-group mb-0&quot;&gt;&lt;div class=&quot;input-group-prepend&quot;&gt;&lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-copy fa-fw&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;input class=&quot;form-control&quot; onfocus=&quot;this.select()&quot; onmouseup=&quot;return false&quot; style=&quot;box-shadow: 0 0 0 0 transparent&quot; value=&quot;&#39;+blog+&#39;/&#39;+config.page+&#39;?u=&#39;+encodeURIComponent(CryptoJS.AES.encrypt(url.value, keyit))+&#39;&quot;/&gt;&lt;/div&gt;&#39; : &#39;&lt;div class=&quot;alert alert-warning text-center&quot;&gt;&#39;+config.lang.validtext+&#39;&lt;/div&gt;&#39; ;
                     } else {
                       result.innerHTML = &#39;&lt;div class=&quot;alert alert-danger text-center&quot;&gt;&#39;+config.lang.urlempty+&#39;&lt;/div&gt;&#39;;
                     }
 
 
                     setTimeout(function(){
-                      result.parentNode.style.height = result.offsetHeight+'px';
+                      result.parentNode.style.height = result.offsetHeight+&#39;px&#39;;
                     }, 0);
                   });
 
@@ -317,98 +408,95 @@ body#layout .layouthide {display:none}
             </b:if>
 
             <b:section id='page-is' maxwidgets='1' showaddelement='no'>
-              <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
+              <b:widget cond='data:view.isSingleItem' id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
                 <b:widget-settings>
-                  <b:widget-setting name='showDateHeader'>false</b:widget-setting>
                   <b:widget-setting name='commentLabel'>Comment</b:widget-setting>
-                  <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
                   <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+                  <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
+                  <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+                  <b:widget-setting name='timestampLabel'>-</b:widget-setting>
+                  <b:widget-setting name='reactionsLabel'>Reaction</b:widget-setting>
+                  <b:widget-setting name='showAuthorProfile'>true</b:widget-setting>
+                  <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+                  <b:widget-setting name='showLocation'>false</b:widget-setting>
+                  <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+                  <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+                  <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+                  <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+                  <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
                   <b:widget-setting name='showCommentLink'>true</b:widget-setting>
                   <b:widget-setting name='style.urlcolor'>#008000</b:widget-setting>
                   <b:widget-setting name='postLocationLabel'>Location</b:widget-setting>
                   <b:widget-setting name='showAuthor'>true</b:widget-setting>
                   <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
-                  <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
                   <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
-                  <b:widget-setting name='timestampLabel'>-</b:widget-setting>
-                  <b:widget-setting name='reactionsLabel'>Reaction</b:widget-setting>
-                  <b:widget-setting name='showAuthorProfile'>true</b:widget-setting>
-                  <b:widget-setting name='style.layout'>1x1</b:widget-setting>
                   <b:widget-setting name='showLabels'>true</b:widget-setting>
-                  <b:widget-setting name='showLocation'>true</b:widget-setting>
                   <b:widget-setting name='postLabelsLabel'>Labels</b:widget-setting>
-                  <b:widget-setting name='showTimestamp'>true</b:widget-setting>
-                  <b:widget-setting name='postsPerAd'>1</b:widget-setting>
                   <b:widget-setting name='showBacklinks'>true</b:widget-setting>
-                  <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
                   <b:widget-setting name='showInlineAds'>false</b:widget-setting>
                   <b:widget-setting name='showReactions'>true</b:widget-setting>
                 </b:widget-settings>
-                <b:includable id='aboutPostAuthor'/><b:includable id='addComments'/><b:includable id='commentAuthorAvatar'/><b:includable id='commentDeleteIcon'/><b:includable id='commentForm'/><b:includable id='commentFormIframeSrc'/><b:includable id='commentItem'/><b:includable id='commentList'/><b:includable id='commentPicker'/><b:includable id='comments'/><b:includable id='commentsTitle'/><b:includable id='feedLinks'/><b:includable id='feedLinksBody'/><b:includable id='homePageLink'/><b:includable id='iframeComments'/><b:includable id='inlineAd'/><b:includable id='nextPageLink'/><b:includable id='post'/><b:includable id='postBody'/><b:includable id='postBodySnippet'/><b:includable id='postCommentsAndAd'/><b:includable id='postCommentsLink'/><b:includable id='postFooter'/><b:includable id='postFooterAuthorProfile'/><b:includable id='postHeader'/><b:includable id='postJumpLink'/><b:includable id='postMeta'/><b:includable id='postPagination'/><b:includable id='postTitle'/><b:includable id='previousPageLink'/><b:includable id='status-message'/><b:includable id='threadedCommentForm'/><b:includable id='threadedCommentJs'/><b:includable id='threadedComments'/>
                 <b:includable id='main' var='this'>
-                  <b:comment>var='this' digunakan untuk mengirim setiap data allBylineItems agar bisa terbaca</b:comment>
+                  <b:comment>var=&#39;this&#39; digunakan untuk mengirim setiap data allBylineItems agar bisa terbaca</b:comment>
 
              	    <b:loop values='data:posts' var='post'>
             		    <b:include name='article.loop'/>
             	    </b:loop>
 
                 </b:includable>
-
+                <b:includable id='aboutPostAuthor'/>
+                <b:includable id='addComments'/>
                 <b:includable id='article.loop'>
                   <b:if cond='data:view.isMultipleItems'>
 
-                    <article id='content-card' expr:class='&quot;content index post-&quot; + data:post.id + &quot; blog&quot;' itemscope='itemscope' itemtype="https://schema.org/BlogPosting">
+                    <article expr:class='&quot;content index post-&quot; + data:post.id + &quot; blog&quot;' id='content-card' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
             	         <b:include name='article.loop.index'/>
                      </article>
 
                   <b:else/>
 
-                    <main class="content post" aria-label="Main content" itemscope='itemscope' itemtype="https://schema.org/Blog">
-            	         <article expr:class='&quot;post-&quot; + data:post.id + &quot; blog&quot;' itemscope='itemscope' itemprop="blogPost" itemtype="https://schema.org/BlogPosting">
+                    <main aria-label='Main content' class='content post' itemscope='itemscope' itemtype='https://schema.org/Blog'>
+            	         <article expr:class='&quot;post-&quot; + data:post.id + &quot; blog&quot;' itemprop='blogPost' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
             		           <b:include name='article.loop.post'/>
             	         </article>
                     </main>
                   </b:if>
                 </b:includable>
-
-
-            <b:includable id='article.loop.index'>
+                <b:includable id='article.loop.index'>
 
             <div class='thumbnail'>
-            <img class='trans' b:whitespace='remove'>
-            <b:attr expr:value='data:post.title ? data:post.title : data:messages.image' name='alt' />
-            <b:attr expr:value='data:post.title ? data:post.title : data:messages.image' name='title' />
+            <img class='trans'>
+            <b:attr expr:value='data:post.title ? data:post.title : data:messages.image' name='alt'/>
+            <b:attr expr:value='data:post.title ? data:post.title : data:messages.image' name='title'/>
             <b:if cond='data:post.featuredImage'>
             <b:attr expr:value='resizeImage(data:post.featuredImage, 240)' name='src'/>
             <b:else/>
-            <b:attr value='https://placehold.it/750x440/4a138c/fff?text=NO+THUMBNAIL' name='src' />
+            <b:attr name='src' value='https://placehold.it/750x440/4a138c/fff?text=NO+THUMBNAIL'/>
             </b:if>
             </img>
             </div>
-            <a expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle' class='btn'></a>
+            <a class='btn' expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'/>
             <h3>
             	<a expr:href='data:post.link ? data:post.link : data:post.url' expr:title='data:post.title ? data:post.title : data:messages.noTitle'>
-            		<b:eval expr='data:post.title ? data:post.title snippet { length: 5, links: false, linebreaks: false, ellipsis: true } : data:messages.noTitle' />
+            		<b:eval expr='data:post.title ? data:post.title snippet { length: 5, links: false, linebreaks: false, ellipsis: true } : data:messages.noTitle'/>
             	</a>
             </h3>
             <div class='deskripsi'><b:eval expr='data:post.snippets.long snippet { length: 100, links: false, linebreaks: false, ellipsis: true }'/></div>
 
             </b:includable>
+                <b:includable id='article.loop.post'>
 
-            <b:includable id='article.loop.post'>
-
-            <div class='post-body' itemprop="articleBody">
-              <h3 class="text-center"><data:post.title/></h3>
+            <div class='post-body' itemprop='articleBody'>
+              <h3 class='text-center'><data:post.title/></h3>
             	<data:post.body/>
             </div>
 
             </b:includable>
-
-            <b:includable id='article.pagination'>
+                <b:includable id='article.pagination'>
             <b:if cond='not data:view.isSingleItem'>
             <b:if cond='data:olderPageUrl'>
             <div class='col-sm-12 col-xs-12'>
-            <div  id='linkloadmore'>
+            <div id='linkloadmore'>
             	<a expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_pagination-old&quot;' expr:title='data:messages.olderPosts' itemprop='url'>
             		<span itemprop='name'>Next Page</span>
             	</a>
@@ -417,28 +505,59 @@ body#layout .layouthide {display:none}
             </b:if>
             </b:if>
             </b:includable>
-
-            </b:widget>
+                <b:includable id='commentAuthorAvatar'/>
+                <b:includable id='commentDeleteIcon'/>
+                <b:includable id='commentForm'/>
+                <b:includable id='commentFormIframeSrc'/>
+                <b:includable id='commentItem'/>
+                <b:includable id='commentList'/>
+                <b:includable id='commentPicker'/>
+                <b:includable id='comments'/>
+                <b:includable id='commentsTitle'/>
+                <b:includable id='feedLinks'/>
+                <b:includable id='feedLinksBody'/>
+                <b:includable id='homePageLink'/>
+                <b:includable id='iframeComments'/>
+                <b:includable id='inlineAd'/>
+                <b:includable id='nextPageLink'/>
+                <b:includable id='post'/>
+                <b:includable id='postBody'/>
+                <b:includable id='postBodySnippet'/>
+                <b:includable id='postCommentsAndAd'/>
+                <b:includable id='postCommentsLink'/>
+                <b:includable id='postFooter'/>
+                <b:includable id='postFooterAuthorProfile'/>
+                <b:includable id='postHeader'/>
+                <b:includable id='postJumpLink'/>
+                <b:includable id='postMeta'/>
+                <b:includable id='postPagination'/>
+                <b:includable id='postTitle'/>
+                <b:includable id='previousPageLink'/>
+                <b:includable id='status-message'/>
+                <b:includable id='threadedCommentForm'/>
+                <b:includable id='threadedCommentJs'/>
+                <b:includable id='threadedComments'/>
+              </b:widget>
             </b:section>
 
-            <b:section id='reset'/>
+            <b:section cond='false' id='reset'/>
 
           </div>
 
 
-          <div class="col-12 col-md-3 order-last mb-3" id="side-right">
-            <b:section class='ads-right' cond='!data:view.isPreview' id='ads-right' maxwidgets='1'>
-          		<b:widget id='HTML704' locked='true' title='right-sidebar-ads' type='HTML' version='2' visible='true'>
-            		<b:widget-settings>
-              		<b:widget-setting name='content'><![CDATA[<img src="//dummyimage.com/700x700/ccc/777.png&text=+++ADS+++" alt="text=ads" title="ads" class="d-block w-100 mb-3" /><img src="//dummyimage.com/700x700/ccc/777.png&text=+++ADS+++" alt="text=ads" title="ads" class="d-block w-100 mb-3" />]]></b:widget-setting>
-            		</b:widget-settings>
-            		<b:includable id='main'>
+          <div class='col-12 col-md-3 order-last mb-3'>
+            <b:section class='ads-right sticky-top' cond='!data:view.isPreview' id='ads-right' maxwidgets='1'>
+              <b:widget id='HTML704' locked='false' title='right-sidebar-ads' type='HTML' version='2' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='content'><![CDATA[<img src="//dummyimage.com/700x700/ccc/777.png&text=+++ADS+++" alt="text=ads" title="ads" class="d-block w-100 mb-3" /><img src="//dummyimage.com/700x700/ccc/777.png&text=+++ADS+++" alt="text=ads" title="ads" class="d-block w-100 mb-3" />]]></b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
           				<b:if cond='data:view.isSingleItem'>
           					<data:content/>
           				</b:if>
           			</b:includable>
-          		</b:widget>
-          	</b:section>
+              </b:widget>
+            </b:section>
           </div>
 
         </div>
@@ -455,10 +574,10 @@ body#layout .layouthide {display:none}
         <div class='container'>
           <div class='row'>
             <div class='col-sm-5'>
-              &#169; 2018 <a expr:href='data:blog.homepageUrl' expr:title='data:blog.title'><span expr:title='data:blog.title'><data:blog.title/></span></a> All Right Reserved
+              &#169; 2019 <a expr:href='data:blog.homepageUrl' expr:title='data:blog.title'><span expr:title='data:blog.title'><data:blog.title/></span></a> All Right Reserved
             </div>
             <div class='col-sm-7 text-right'>
-              Created By <a href="//anasrar.blogspot.com" title="Anas RAR" id="naas">Anas RAR</a>
+              Created By <a href='//anasrar.blogspot.com' id='naas' title='Anas RAR'>Anas RAR</a>
             </div>
           </div>
         </div>
@@ -470,10 +589,10 @@ body#layout .layouthide {display:none}
 <script type='text/javascript'>
   $(document).ready(function() {
     if (config.fixednavbar) {
-      var navbar = $('.navbar'), placeholder = navbar.parent();
-      $(window).on('resize load', function(){
-        navbar.css({position: 'fixed', width: placeholder.outerWidth()+'px', zIndex: '9999999'});
-        placeholder.css({height: navbar.outerHeight()+'px'});
+      var navbar = $(&#39;.navbar&#39;), placeholder = navbar.parent();
+      $(window).on(&#39;resize load&#39;, function(){
+        navbar.css({position: &#39;fixed&#39;, width: placeholder.outerWidth()+&#39;px&#39;, zIndex: &#39;9999999&#39;});
+        placeholder.css({height: navbar.outerHeight()+&#39;px&#39;});
       });
     }
   });

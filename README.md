@@ -1,10 +1,10 @@
 # NihLink Safelink Template Blogger
 
-![GitHub](https://img.shields.io/github/license/anasrar/NihLink-Safelink-Template-Blogger.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/anasrar/NihLink-Safelink-Template-Blogger.svg)
+![GitHub release](https://img.shields.io/github/release/anasrar/NihLink-Safelink-Template-Blogger.svg) ![GitHub](https://img.shields.io/github/license/anasrar/NihLink-Safelink-Template-Blogger.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/anasrar/NihLink-Safelink-Template-Blogger.svg)
 
 Simple Safelink Template Blogger
 
-[ [DEMO](https://nihlink.blogspot.com) ]
+[ [DEMO](https://nihlink.blogspot.com) ] [ [RULES](RULES.md) ]
 
 ![DEMO](screenshot.png)
 
@@ -14,7 +14,7 @@ Simple Safelink Template Blogger
 - Unlock With Password
 - Sticky Ads
 
-# How To Make Safelink Page
+# How To Make Safelink Page / Article
 
 On **HTML** Mode
 
@@ -60,6 +60,15 @@ Layout > page-setting > setting
     });
 </script>
 ```
+# Changelog
+
+## 2.1.1 - 05/04/2019
+### Update
+- Add Random Post
+
+## 2.0.1 - 04/04/2019
+### Update
+- Add Password System
 
 # Built With
 

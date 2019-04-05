@@ -3,9 +3,9 @@
 <html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>&lt;!--/**
 *
 * Created By Anas RAR
-* NihLink v2.0.1
+* NihLink v2.1.1
 * Author : Anas RAR
-* Date	 : 	4 April 2019
+* Date	 : 5 April 2019
 * URL 	 : anasrar.github.io
 *
 */<head>--&gt;<b:include name='body'/>&lt;head&gt;
@@ -322,7 +322,7 @@ body#layout #page-setting {background: #fffcf2}
               </section>
 
               <section>
-                <div class='row mb-3'>
+                <div class='row mb-2'>
                   <div class='col-3'>
                     <button class='btn btn-dark btn-block' id='passbtn' onclick='sUp(&apos;#result&apos;)'>Password</button>
                   </div>
@@ -334,6 +334,13 @@ body#layout #page-setting {background: #fffcf2}
                       <input class='form-control' disabled='disabled' id='passinput' onclick='sUp(&apos;#result&apos;)' onkeypress='sUp(&apos;#result&apos;)' type='text'/>
                     </div>
                   </div>
+                </div>
+              </section>
+
+              <section class='mb-3'>
+                <div class='custom-control custom-switch'>
+                  <input class='custom-control-input' id='randPost' onclick='sUp(&apos;#result&apos;)' type='checkbox'/>
+                  <label class='custom-control-label' for='randPost' onclick='sUp(&apos;#result&apos;)'>Random Post</label>
                 </div>
               </section>
 
@@ -389,10 +396,36 @@ body#layout #page-setting {background: #fffcf2}
                     keyit = passinput.value.length ? passinput.value : config.defaultkey,
                     blog = config.url.length ? config.url : window.location.protocol + &quot;//&quot; + window.location.hostname,
                     url = $this.find(&#39;#urlinput&#39;)[0],
+                    randPost = $(&#39;#randPost&#39;)[0],
                     result = $(&#39;#result&#39;)[0];
 
                     if (url.value.length) {
-                      result.innerHTML = validurlit(url.value) ? &#39;&lt;div class=&quot;alert alert-success text-center&quot;&gt;&#39;+config.lang.convertsuccess+&#39;&lt;/div&gt;&lt;div class=&quot;input-group mb-0&quot;&gt;&lt;div class=&quot;input-group-prepend&quot;&gt;&lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-copy fa-fw&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;input class=&quot;form-control&quot; onfocus=&quot;this.select()&quot; onmouseup=&quot;return false&quot; style=&quot;box-shadow: 0 0 0 0 transparent&quot; value=&quot;&#39;+blog+&#39;/&#39;+config.page+&#39;?u=&#39;+encodeURIComponent(CryptoJS.AES.encrypt(url.value, keyit))+&#39;&quot;/&gt;&lt;/div&gt;&#39; : &#39;&lt;div class=&quot;alert alert-warning text-center&quot;&gt;&#39;+config.lang.validtext+&#39;&lt;/div&gt;&#39; ;
+                      if (randPost.checked) {
+                        if (validurlit(url.value)) {
+                          $.ajax({
+                            url: &#39;/feeds/posts/summary?alt=json&amp;max-results=99&#39;,
+                            type: &#39;GET&#39;,
+                            dataType: &#39;json&#39;,
+                            cache: true,
+                            beforeSend: function() {
+                              result.innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;span class=&quot;spinner-border spinner-border-sm text-primary&quot; role=&quot;status&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt; Fetch Post&lt;/div&gt;&#39; ;
+                            },
+                            success: function(a){
+                              var post = a.feed.entry,
+                                  randNum = Math.floor(Math.random() * post.length);
+                              result.innerHTML = &#39;&lt;div class=&quot;alert alert-success text-center&quot;&gt;&#39;+config.lang.convertsuccess+&#39;&lt;/div&gt;&lt;div class=&quot;input-group mb-0&quot;&gt;&lt;div class=&quot;input-group-prepend&quot;&gt;&lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-copy fa-fw&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;input class=&quot;form-control&quot; onfocus=&quot;this.select()&quot; onmouseup=&quot;return false&quot; style=&quot;box-shadow: 0 0 0 0 transparent&quot; value=&quot;&#39;+post[randNum].link[4].href+&#39;?u=&#39;+encodeURIComponent(CryptoJS.AES.encrypt(url.value, keyit))+&#39;&quot;/&gt;&lt;/div&gt;&#39;;
+                              setTimeout(function(){
+                                result.parentNode.style.height = result.offsetHeight+&#39;px&#39;;
+                              }, 0);
+                            }
+                          });
+                          // result.innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;span class=&quot;spinner-border spinner-border-sm text-primary&quot; role=&quot;status&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt; Fetch Post&lt;/div&gt;&#39; ;
+                        } else {
+                          result.innerHTML = &#39;&lt;div class=&quot;alert alert-warning text-center&quot;&gt;&#39;+config.lang.validtext+&#39;&lt;/div&gt;&#39; ;
+                        }
+                      } else {
+                        result.innerHTML = validurlit(url.value) ? &#39;&lt;div class=&quot;alert alert-success text-center&quot;&gt;&#39;+config.lang.convertsuccess+&#39;&lt;/div&gt;&lt;div class=&quot;input-group mb-0&quot;&gt;&lt;div class=&quot;input-group-prepend&quot;&gt;&lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-copy fa-fw&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;input class=&quot;form-control&quot; onfocus=&quot;this.select()&quot; onmouseup=&quot;return false&quot; style=&quot;box-shadow: 0 0 0 0 transparent&quot; value=&quot;&#39;+blog+&#39;/&#39;+config.page+&#39;?u=&#39;+encodeURIComponent(CryptoJS.AES.encrypt(url.value, keyit))+&#39;&quot;/&gt;&lt;/div&gt;&#39; : &#39;&lt;div class=&quot;alert alert-warning text-center&quot;&gt;&#39;+config.lang.validtext+&#39;&lt;/div&gt;&#39; ;
+                      }
                     } else {
                       result.innerHTML = &#39;&lt;div class=&quot;alert alert-danger text-center&quot;&gt;&#39;+config.lang.urlempty+&#39;&lt;/div&gt;&#39;;
                     }
@@ -577,7 +610,8 @@ body#layout #page-setting {background: #fffcf2}
               &#169; 2019 <a expr:href='data:blog.homepageUrl' expr:title='data:blog.title'><span expr:title='data:blog.title'><data:blog.title/></span></a> All Right Reserved
             </div>
             <div class='col-sm-7 text-right'>
-              Created By <a href='//anasrar.blogspot.com' id='naas' title='Anas RAR'>Anas RAR</a>
+              Created By <a href='//anasrar.github.io' id='naas' title='Anas RAR'>Anas RAR</a>
+              <!-- Please Dont Remove Or Change My Link  -->
             </div>
           </div>
         </div>

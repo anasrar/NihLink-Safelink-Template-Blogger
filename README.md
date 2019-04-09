@@ -45,6 +45,8 @@ Layout > page-setting > setting
       page: "p/page.html", // url safelink page / safelink article
       output: "#output", // place the output link, use the id attribute
       fixednavbar: true, // please change to true / false if you want the Navbar to float
+      countdown: true, // please change to true / false if you want safelink page with countdown
+      timedown: 10, // countdown start
       lang: {
         urlempty: "URL can not be empty",
         convertsuccess: "Convert URL success, copy url on box below",
@@ -53,14 +55,20 @@ Layout > page-setting > setting
         nourl: "No URl here",
         errorconvert: "URL can not to convert",
         emptypass: "Password can not be empty",
-        wrongpass: "Password is incorrect"
+        wrongpass: "Password is incorrect",
+        countdowntext: "Please Wait {{anascountdown}} Second";
       }
     }
-    window.config = $.extend({}, asli_config, new_config);
+    window.config = $.extend(true, asli_config, new_config);
     });
 </script>
 ```
 # Changelog
+
+## 2.2.2 - 09/04/2019
+### Update
+- Add Countdown
+- Fix Deep Extend jQuery
 
 ## 2.1.1 - 05/04/2019
 ### Update

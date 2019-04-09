@@ -3,10 +3,12 @@
 <html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>&lt;!--/**
 *
 * Created By Anas RAR
-* NihLink v2.1.1
+* NihLink v2.2.2
 * Author : Anas RAR
-* Date	 : 5 April 2019
+* Date	 : 9 April 2019
 * URL 	 : anasrar.github.io
+* Repository : https://github.com/anasrar/NihLink-Safelink-Template-Blogger
+* License : https://github.com/anasrar/NihLink-Safelink-Template-Blogger/blob/master/LICENSE
 *
 */<head>--&gt;<b:include name='body'/>&lt;head&gt;
 
@@ -34,6 +36,8 @@ $(document).ready(function() {
       output: &#39;#output&#39;,
       defaultkey: &#39;AnasRAR&#39;,
       fixednavbar: false,
+      countdown: true,
+      timedown: 10,
       lang: {
         urlempty: &quot;URL can not empty&quot;,
         convertsuccess: &quot;Convert URL success, copy url on box below&quot;,
@@ -42,7 +46,8 @@ $(document).ready(function() {
         nourl: &quot;nggapain pak ??, linknya nggak ada&quot;,
         errorconvert: &quot;URL can not to convert&quot;,
         emptypass: &quot;Password can not empty&quot;,
-        wrongpass: &quot;Password is incorrect&quot;
+        wrongpass: &quot;Password is incorrect&quot;,
+        countdowntext: &quot;Please Wait {{anascountdown}} Second&quot;
       }
     }
     var xv = $(&#39;footer &gt; .d-table &gt; .d-table-row &gt; .d-table-cell &gt; .container &gt; .row &gt; .col-sm-7 &gt; a#naas&#39;);
@@ -61,9 +66,9 @@ $(document).ready(function() {
         var results = regex.exec( url );
         return results == null ? null : results[1];
       }
-      xv.attr(&#39;href&#39;, &#39;//anasrar.blogspot.com&#39;).text(&#39;Anas RAR&#39;);
+      xv.attr(&#39;href&#39;, &#39;//anasrar.github.io&#39;).text(&#39;Anas RAR&#39;);
     } else {
-      location.href = &#39;//anasrar.blogspot.com&#39;;
+      location.href = &#39;//anasrar.github.io&#39;;
     }
   }(window,document));
 });
@@ -81,7 +86,7 @@ body#layout .layouthide {display:none}
 ]]></b:skin>
 
 <b:template-skin><![CDATA[
-body#layout:before{content:"NihLink v2.0.1";position:absolute;top:33px;right:7px;z-index:1;padding:10px 20px;font-size:18px;font-family:sans-serif;color:#fff;background: #007bff}
+body#layout:before{content:"NihLink v2.2.2";position:absolute;top:33px;right:7px;z-index:1;padding:10px 20px;font-size:18px;font-family:sans-serif;color:#fff;background: #007bff}
 body#layout {background-color: #fff; border: 0}
 body#layout div.section {background-color: #fff}
 body#layout .add_widget a {color: #007bff}
@@ -210,6 +215,8 @@ body#layout #page-setting {background: #fffcf2}
       page: &quot;p/lanjut.html&quot;,
       output: &quot;#output&quot;,
       fixednavbar: true,
+      countdown: true,
+      timedown: 10,
       lang: {
         urlempty: &quot;URL can not be empty&quot;,
         convertsuccess: &quot;Convert URL success, copy url on box below&quot;,
@@ -218,10 +225,11 @@ body#layout #page-setting {background: #fffcf2}
         nourl: &quot;No URl here&quot;,
         errorconvert: &quot;URL can not to convert&quot;,
         emptypass: &quot;Password can not be empty&quot;,
-        wrongpass: &quot;Password is incorrect&quot;
+        wrongpass: &quot;Password is incorrect&quot;,
+        countdowntext: &quot;Please Wait {{anascountdown}} Second&quot;
       }
     }
-    window.config = $.extend({}, asli_config, new_config);
+    window.config = $.extend(true, asli_config, new_config);
     });
 &lt;/script&gt;</b:widget-setting>
             </b:widget-settings>
@@ -272,9 +280,27 @@ body#layout #page-setting {background: #fffcf2}
 
                     if (passin[0].value.length) {
                       if (CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), passin[0].value).toString().length) {
-                        report[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;a href=&quot;&#39;+CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), passin[0].value).toString(CryptoJS.enc.Utf8)+&#39;&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/a&gt;&lt;/div&gt;&#39;;
-                        $this.find(&#39;button, input&#39;).attr(&#39;disabled&#39;, &#39;disabled&#39;);
-                        $this.slideUp(&#39;slow&#39;);
+						if(!config.countdown){
+                          report[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;a href=&quot;&#39;+CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), passin[0].value).toString(CryptoJS.enc.Utf8)+&#39;&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/a&gt;&lt;/div&gt;&#39;;
+                          $this.find(&#39;button, input&#39;).attr(&#39;disabled&#39;, &#39;disabled&#39;);
+                          $this.slideUp(&#39;slow&#39;);
+						} else {
+                          $this.find(&#39;button, input&#39;).attr(&#39;disabled&#39;, &#39;disabled&#39;);
+                          $this.slideUp(&#39;slow&#39;);
+                          var timeleft = config.timedown;
+						  var MuANasRAR = setInterval(function(){
+                            var ANasRMunDurin = config.lang.countdowntext.replace(&#39;\x7b\x7b\x61\x6e\x61\x73\x63\x6f\x75\x6e\x74\x64\x6f\x77\x6e\x7d\x7d&#39;, timeleft);
+                            report[0].innerHTML = &#39;&lt;div class=&quot;border p-3 text-center&quot;&gt;&#39; + ANasRMunDurin + &#39;&lt;/div&gt;&#39;;
+							setTimeout(function(){
+                        	  report[0].parentNode.style.height = report[0].offsetHeight+&#39;px&#39;;
+                      	    }, 0);
+                            timeleft -= 1;
+                            if(timeleft &lt;= 0){
+                              clearInterval(MuANasRAR);
+                              report[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;a href=&quot;&#39;+CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), passin[0].value).toString(CryptoJS.enc.Utf8)+&#39;&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/a&gt;&lt;/div&gt;&#39;;
+                            }
+                          }, 1000);
+						}
                       } else {
                         report[0].innerHTML = &#39;&lt;div class=&quot;alert alert-danger text-center&quot;&gt;&#39;+config.lang.wrongpass+&#39;&lt;/div&gt;&#39;;
                       }
@@ -290,7 +316,20 @@ body#layout #page-setting {background: #fffcf2}
 
                   if (_GET(&#39;u&#39;) &amp;&amp; $(config.output).length) {
                     if (CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), config.defaultkey).toString().length) {
-                      $(config.output)[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;a class=&quot;text-center&quot; href=&quot;&#39;+CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), config.defaultkey).toString(CryptoJS.enc.Utf8)+&#39;&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/a&gt;&lt;/div&gt;&#39;;
+                      if(!config.countdown){
+                      	$(config.output)[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;a class=&quot;text-center&quot; href=&quot;&#39;+CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), config.defaultkey).toString(CryptoJS.enc.Utf8)+&#39;&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/a&gt;&lt;/div&gt;&#39;;
+                      } else {
+                        var timeleft = config.timedown;
+                        var MuANasRAR = setInterval(function(){
+                          var ANasRMunDurin = config.lang.countdowntext.replace(&#39;\x7b\x7b\x61\x6e\x61\x73\x63\x6f\x75\x6e\x74\x64\x6f\x77\x6e\x7d\x7d&#39;, timeleft);
+                          $(config.output)[0].innerHTML = &#39;&lt;div class=&quot;border p-3 text-center&quot;&gt;&#39; + ANasRMunDurin + &#39;&lt;/div&gt;&#39;;
+                          timeleft -= 1;
+                          if(timeleft &lt;= 0){
+                            clearInterval(MuANasRAR);
+                            $(config.output)[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;a class=&quot;text-center&quot; href=&quot;&#39;+CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), config.defaultkey).toString(CryptoJS.enc.Utf8)+&#39;&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/a&gt;&lt;/div&gt;&#39;;
+                          }
+                        }, 1000);
+                      }
                     } else {
                       $(config.output)[0].innerHTML = &#39;&lt;form class=&quot;form-group&quot; id=&quot;locked&quot;&gt;&lt;div class=&quot;input-group&quot;&gt;&lt;div class=&quot;input-group-prepend&quot;&gt;&lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-lock fa-fw&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;input class=&quot;form-control&quot; name=&quot;pass&quot; type=&quot;password&quot; id=&quot;passin&quot; onclick=&quot;sUp(\&#39;#report\&#39;)&quot; onkeypress=&quot;sUp(\&#39;#report\&#39;)&quot; aria-label=&quot;Password&quot; /&gt;&lt;div class=&quot;input-group-append&quot;&gt;&lt;button class=&quot;btn btn-primary&quot; type=&quot;submit&quot;&gt;Unlock&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/form&gt;&lt;section class=&quot;trans&quot; style=&quot;overflow: hidden;height: 0&quot;&gt;&lt;div id=&quot;report&quot;&gt;&lt;/div&gt;&lt;/section&gt;&#39;;
                     }

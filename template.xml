@@ -476,8 +476,15 @@ lang: {
                             },
                             success: function(a){
                               var post = a.feed.entry,
-                                  randNum = Math.floor(Math.random() * post.length);
-                              result.innerHTML = &#39;&lt;div class=&quot;alert alert-success text-center&quot;&gt;&#39;+config.lang.convertsuccess+&#39;&lt;/div&gt;&lt;div class=&quot;input-group mb-0&quot;&gt;&lt;div class=&quot;input-group-prepend&quot;&gt;&lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-copy fa-fw&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;input class=&quot;form-control&quot; onfocus=&quot;this.select()&quot; onmouseup=&quot;return false&quot; style=&quot;box-shadow: 0 0 0 0 transparent&quot; value=&quot;&#39;+post[randNum].link[4].href+&#39;?u=&#39;+encodeURIComponent(CryptoJS.AES.encrypt(JSON.stringify(data), keyit))+&#39;&quot;/&gt;&lt;/div&gt;&#39;;
+                                  randNum = Math.floor(Math.random() * post.length),
+                                  linknya = "";
+                              for(var i = 0; i &lt; post[randNum].link.length; i++){
+                                if(post[randNum].link[i].rel == &#39;alternate&#39;) {
+                                    linknya = post[randNum].link[i].href;
+                                  break;
+                                }
+                              }
+                              result.innerHTML = &#39;&lt;div class=&quot;alert alert-success text-center&quot;&gt;&#39;+config.lang.convertsuccess+&#39;&lt;/div&gt;&lt;div class=&quot;input-group mb-0&quot;&gt;&lt;div class=&quot;input-group-prepend&quot;&gt;&lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-copy fa-fw&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;input class=&quot;form-control&quot; onfocus=&quot;this.select()&quot; onmouseup=&quot;return false&quot; style=&quot;box-shadow: 0 0 0 0 transparent&quot; value=&quot;&#39;+linknya+&#39;?u=&#39;+encodeURIComponent(CryptoJS.AES.encrypt(JSON.stringify(data), keyit))+&#39;&quot;/&gt;&lt;/div&gt;&#39;;
                               setTimeout(function(){
                                 result.parentNode.style.height = result.offsetHeight+&#39;px&#39;;
                               }, 0);

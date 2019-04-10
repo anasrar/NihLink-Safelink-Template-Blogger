@@ -270,6 +270,16 @@ lang: {
             <b:if cond='data:view.isSingleItem'>
               <script type='text/javascript'>
                 &quot;use strict&quot;;
+
+if (!String.prototype.startsWith) {
+    Object.defineProperty(String.prototype, &#39;startsWith&#39;, {
+        value: function(search, pos) {
+            pos = !pos || pos &lt; 0 ? 0 : +pos;
+            return this.substring(pos, pos + search.length) === search;
+        }
+    });
+}
+
                 $(document).ready(function(){
                   $(document).on(&#39;submit&#39;, &#39;#locked&#39;, function(e) {
                     e.preventDefault();
@@ -477,7 +487,7 @@ lang: {
                             success: function(a){
                               var post = a.feed.entry,
                                   randNum = Math.floor(Math.random() * post.length),
-                                  linknya = "";
+                                  linknya = &quot;&quot;;
                               for(var i = 0; i &lt; post[randNum].link.length; i++){
                                 if(post[randNum].link[i].rel == &#39;alternate&#39;) {
                                     linknya = post[randNum].link[i].href;

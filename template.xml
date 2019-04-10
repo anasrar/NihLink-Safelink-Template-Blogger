@@ -3,9 +3,9 @@
 <html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>&lt;!--/**
 *
 * Created By Anas RAR
-* NihLink v2.2.2
+* NihLink v2.5.4
 * Author : Anas RAR
-* Date	 : 9 April 2019
+* Date	 : 10 April 2019
 * URL 	 : anasrar.github.io
 * Repository : https://github.com/anasrar/NihLink-Safelink-Template-Blogger
 * License : https://github.com/anasrar/NihLink-Safelink-Template-Blogger/blob/master/LICENSE
@@ -86,7 +86,7 @@ body#layout .layouthide {display:none}
 ]]></b:skin>
 
 <b:template-skin><![CDATA[
-body#layout:before{content:"NihLink v2.2.2";position:absolute;top:33px;right:7px;z-index:1;padding:10px 20px;font-size:18px;font-family:sans-serif;color:#fff;background: #007bff}
+body#layout:before{content:"NihLink v2.5.4";position:absolute;top:33px;right:7px;z-index:1;padding:10px 20px;font-size:18px;font-family:sans-serif;color:#fff;background: #007bff}
 body#layout {background-color: #fff; border: 0}
 body#layout div.section {background-color: #fff}
 body#layout .add_widget a {color: #007bff}
@@ -207,34 +207,34 @@ body#layout #page-setting {background: #fffcf2}
         <b:section class='page-setting' cond='!data:view.isPreview' id='page-setting' maxwidgets='1'>
           <b:widget id='HTML696' locked='false' title='setting' type='HTML' version='2' visible='true'>
             <b:widget-settings>
-              <b:widget-setting name='content'>&lt;script type=&quot;text/javascript&quot;&gt;
+              <b:widget-setting name='content'>url: &quot;&quot;,
+page: &quot;p/lanjut.html&quot;,
+output: &quot;#output&quot;,
+fixednavbar: true,
+countdown: true,
+timedown: 10,
+lang: {
+ urlempty: &quot;URL can not be empty&quot;,
+ convertsuccess: &quot;Convert URL success, copy url on box below&quot;,
+ validtext: &quot;HTTP, HTTPS, or WWW&quot;,
+ gourltext: &quot;Click here to go&quot;,
+ nourl: &quot;No URl here&quot;,
+ errorconvert: &quot;URL can not to convert&quot;,
+ emptypass: &quot;Password can not be empty&quot;,
+ wrongpass: &quot;Password is incorrect&quot;,
+ countdowntext: &quot;Please Wait {{anascountdown}} Second&quot;
+}</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main'>
+<script type='text/javascript'>
   &quot;use strict&quot;;
   $(document).ready(function() {
     window.new_config = {
-      url: &quot;&quot;,
-      page: &quot;p/lanjut.html&quot;,
-      output: &quot;#output&quot;,
-      fixednavbar: true,
-      countdown: true,
-      timedown: 10,
-      lang: {
-        urlempty: &quot;URL can not be empty&quot;,
-        convertsuccess: &quot;Convert URL success, copy url on box below&quot;,
-        validtext: &quot;HTTP, HTTPS, or WWW&quot;,
-        gourltext: &quot;Click here to go&quot;,
-        nourl: &quot;No URl here&quot;,
-        errorconvert: &quot;URL can not to convert&quot;,
-        emptypass: &quot;Password can not be empty&quot;,
-        wrongpass: &quot;Password is incorrect&quot;,
-        countdowntext: &quot;Please Wait {{anascountdown}} Second&quot;
-      }
+      <data:content/>
     }
     window.config = $.extend(true, asli_config, new_config);
-    });
-&lt;/script&gt;</b:widget-setting>
-            </b:widget-settings>
-            <b:includable id='main'>
-              <data:content/>
+  });
+</script>
             </b:includable>
           </b:widget>
         </b:section>
@@ -278,10 +278,17 @@ body#layout #page-setting {background: #fffcf2}
                     report = parent.find(&#39;#report&#39;),
                     passin = $(&#39;#passin&#39;);
 
+					var data;
+                    try {
+          			  data = JSON.parse(CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), passin[0].value).toString(CryptoJS.enc.Utf8));
+      				} catch (e) {
+                      data = false;
+                  	}
+
                     if (passin[0].value.length) {
-                      if (CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), passin[0].value).toString().length) {
-						if(!config.countdown){
-                          report[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;a href=&quot;&#39;+CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), passin[0].value).toString(CryptoJS.enc.Utf8)+&#39;&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/a&gt;&lt;/div&gt;&#39;;
+                      if (typeof(data) === &quot;object&quot;) {
+						if(!data.countdown){
+                          report[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;a href=&quot;&#39;+(data.url.toLowerCase().startsWith(&#39;www.&#39;) ? &#39;//&#39; : &#39;&#39;)+&#39;&#39;+data.url+&#39;&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/a&gt;&lt;/div&gt;&#39;;
                           $this.find(&#39;button, input&#39;).attr(&#39;disabled&#39;, &#39;disabled&#39;);
                           $this.slideUp(&#39;slow&#39;);
 						} else {
@@ -297,7 +304,7 @@ body#layout #page-setting {background: #fffcf2}
                             timeleft -= 1;
                             if(timeleft &lt;= 0){
                               clearInterval(MuANasRAR);
-                              report[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;a href=&quot;&#39;+CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), passin[0].value).toString(CryptoJS.enc.Utf8)+&#39;&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/a&gt;&lt;/div&gt;&#39;;
+                              report[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;a href=&quot;&#39;+(data.url.toLowerCase().startsWith(&#39;www.&#39;) ? &#39;//&#39; : &#39;&#39;)+&#39;&#39;+data.url+&#39;&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/a&gt;&lt;/div&gt;&#39;;
                             }
                           }, 1000);
 						}
@@ -315,9 +322,17 @@ body#layout #page-setting {background: #fffcf2}
 
 
                   if (_GET(&#39;u&#39;) &amp;&amp; $(config.output).length) {
-                    if (CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), config.defaultkey).toString().length) {
-                      if(!config.countdown){
-                      	$(config.output)[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;a class=&quot;text-center&quot; href=&quot;&#39;+CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), config.defaultkey).toString(CryptoJS.enc.Utf8)+&#39;&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/a&gt;&lt;/div&gt;&#39;;
+
+					var data;
+                    try {
+          			  data = JSON.parse(CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), config.defaultkey).toString(CryptoJS.enc.Utf8));
+      				} catch (e) {
+                      data = false;
+                  	}
+
+                    if (typeof(data) === &quot;object&quot;) {
+                      if(!data.countdown){
+                      	$(config.output)[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;a class=&quot;text-center&quot; href=&quot;&#39;+(data.url.toLowerCase().startsWith(&#39;www.&#39;) ? &#39;//&#39; : &#39;&#39;)+&#39;&#39;+data.url+&#39;&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/a&gt;&lt;/div&gt;&#39;;
                       } else {
                         var timeleft = config.timedown;
                         var MuANasRAR = setInterval(function(){
@@ -326,7 +341,7 @@ body#layout #page-setting {background: #fffcf2}
                           timeleft -= 1;
                           if(timeleft &lt;= 0){
                             clearInterval(MuANasRAR);
-                            $(config.output)[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;a class=&quot;text-center&quot; href=&quot;&#39;+CryptoJS.AES.decrypt(decodeURIComponent(_GET(&#39;u&#39;)), config.defaultkey).toString(CryptoJS.enc.Utf8)+&#39;&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/a&gt;&lt;/div&gt;&#39;;
+                            $(config.output)[0].innerHTML = &#39;&lt;div class=&quot;text-center&quot;&gt;&lt;a class=&quot;text-center&quot; href=&quot;&#39;+(data.url.toLowerCase().startsWith(&#39;www.&#39;) ? &#39;//&#39; : &#39;&#39;)+&#39;&#39;+data.url+&#39;&quot;&gt;&#39;+config.lang.gourltext+&#39;&lt;/a&gt;&lt;/div&gt;&#39;;
                           }
                         }, 1000);
                       }
@@ -377,9 +392,13 @@ body#layout #page-setting {background: #fffcf2}
               </section>
 
               <section class='mb-3'>
-                <div class='custom-control custom-switch'>
+                <div class='d-inline-block custom-control custom-switch mr-3'>
                   <input class='custom-control-input' id='randPost' onclick='sUp(&apos;#result&apos;)' type='checkbox'/>
                   <label class='custom-control-label' for='randPost' onclick='sUp(&apos;#result&apos;)'>Random Post</label>
+                </div>
+                <div class='d-inline-block custom-control custom-switch'>
+                  <input class='custom-control-input' id='countDown' onclick='sUp(&apos;#result&apos;)' type='checkbox'/>
+                  <label class='custom-control-label' for='countDown' onclick='sUp(&apos;#result&apos;)'>Countdown</label>
                 </div>
               </section>
 
@@ -416,6 +435,9 @@ body#layout #page-setting {background: #fffcf2}
               <script type='text/javascript'>
               &quot;use strict&quot;;
                 $(document).ready(function() {
+
+                  config.countdown ? $(&#39;#countDown&#39;).prop(&#39;checked&#39;, true) : $(&#39;#countDown&#39;).prop(&#39;checked&#39;, false) ;
+
                   $(&#39;#passbtn&#39;).on(&#39;click&#39;, function(e) {
                     var $this = $(this);
                       if($this.hasClass(&#39;btn-dark&#39;)){
@@ -436,7 +458,10 @@ body#layout #page-setting {background: #fffcf2}
                     blog = config.url.length ? config.url : window.location.protocol + &quot;//&quot; + window.location.hostname,
                     url = $this.find(&#39;#urlinput&#39;)[0],
                     randPost = $(&#39;#randPost&#39;)[0],
-                    result = $(&#39;#result&#39;)[0];
+                    result = $(&#39;#result&#39;)[0],
+                    data = {};
+                    data.url = url.value,
+                    data.countdown = $(&#39;#countDown&#39;)[0].checked;
 
                     if (url.value.length) {
                       if (randPost.checked) {
@@ -452,7 +477,7 @@ body#layout #page-setting {background: #fffcf2}
                             success: function(a){
                               var post = a.feed.entry,
                                   randNum = Math.floor(Math.random() * post.length);
-                              result.innerHTML = &#39;&lt;div class=&quot;alert alert-success text-center&quot;&gt;&#39;+config.lang.convertsuccess+&#39;&lt;/div&gt;&lt;div class=&quot;input-group mb-0&quot;&gt;&lt;div class=&quot;input-group-prepend&quot;&gt;&lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-copy fa-fw&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;input class=&quot;form-control&quot; onfocus=&quot;this.select()&quot; onmouseup=&quot;return false&quot; style=&quot;box-shadow: 0 0 0 0 transparent&quot; value=&quot;&#39;+post[randNum].link[4].href+&#39;?u=&#39;+encodeURIComponent(CryptoJS.AES.encrypt(url.value, keyit))+&#39;&quot;/&gt;&lt;/div&gt;&#39;;
+                              result.innerHTML = &#39;&lt;div class=&quot;alert alert-success text-center&quot;&gt;&#39;+config.lang.convertsuccess+&#39;&lt;/div&gt;&lt;div class=&quot;input-group mb-0&quot;&gt;&lt;div class=&quot;input-group-prepend&quot;&gt;&lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-copy fa-fw&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;input class=&quot;form-control&quot; onfocus=&quot;this.select()&quot; onmouseup=&quot;return false&quot; style=&quot;box-shadow: 0 0 0 0 transparent&quot; value=&quot;&#39;+post[randNum].link[4].href+&#39;?u=&#39;+encodeURIComponent(CryptoJS.AES.encrypt(JSON.stringify(data), keyit))+&#39;&quot;/&gt;&lt;/div&gt;&#39;;
                               setTimeout(function(){
                                 result.parentNode.style.height = result.offsetHeight+&#39;px&#39;;
                               }, 0);
@@ -463,7 +488,7 @@ body#layout #page-setting {background: #fffcf2}
                           result.innerHTML = &#39;&lt;div class=&quot;alert alert-warning text-center&quot;&gt;&#39;+config.lang.validtext+&#39;&lt;/div&gt;&#39; ;
                         }
                       } else {
-                        result.innerHTML = validurlit(url.value) ? &#39;&lt;div class=&quot;alert alert-success text-center&quot;&gt;&#39;+config.lang.convertsuccess+&#39;&lt;/div&gt;&lt;div class=&quot;input-group mb-0&quot;&gt;&lt;div class=&quot;input-group-prepend&quot;&gt;&lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-copy fa-fw&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;input class=&quot;form-control&quot; onfocus=&quot;this.select()&quot; onmouseup=&quot;return false&quot; style=&quot;box-shadow: 0 0 0 0 transparent&quot; value=&quot;&#39;+blog+&#39;/&#39;+config.page+&#39;?u=&#39;+encodeURIComponent(CryptoJS.AES.encrypt(url.value, keyit))+&#39;&quot;/&gt;&lt;/div&gt;&#39; : &#39;&lt;div class=&quot;alert alert-warning text-center&quot;&gt;&#39;+config.lang.validtext+&#39;&lt;/div&gt;&#39; ;
+                        result.innerHTML = validurlit(url.value) ? &#39;&lt;div class=&quot;alert alert-success text-center&quot;&gt;&#39;+config.lang.convertsuccess+&#39;&lt;/div&gt;&lt;div class=&quot;input-group mb-0&quot;&gt;&lt;div class=&quot;input-group-prepend&quot;&gt;&lt;span class=&quot;input-group-text&quot;&gt;&lt;i class=&quot;fas fa-copy fa-fw&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;input class=&quot;form-control&quot; onfocus=&quot;this.select()&quot; onmouseup=&quot;return false&quot; style=&quot;box-shadow: 0 0 0 0 transparent&quot; value=&quot;&#39;+blog+&#39;/&#39;+config.page+&#39;?u=&#39;+encodeURIComponent(CryptoJS.AES.encrypt(JSON.stringify(data), keyit))+&#39;&quot;/&gt;&lt;/div&gt;&#39; : &#39;&lt;div class=&quot;alert alert-warning text-center&quot;&gt;&#39;+config.lang.validtext+&#39;&lt;/div&gt;&#39; ;
                       }
                     } else {
                       result.innerHTML = &#39;&lt;div class=&quot;alert alert-danger text-center&quot;&gt;&#39;+config.lang.urlempty+&#39;&lt;/div&gt;&#39;;

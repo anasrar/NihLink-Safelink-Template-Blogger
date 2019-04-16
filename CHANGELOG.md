@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.6.5 - 16/04/2019
+### Update
+- ✅ Add startsWith Polyfill For IE 11 Compatible
+- ✅ Fix Fetch BUG #2
+
 ## 2.5.4 - 10/04/2019
 ### Update
 - ✅ Fix URL Start With "www"

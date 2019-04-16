@@ -8,6 +8,10 @@
 
 ![DEMO](screenshot.png)
 
+# THIS PROJECT IS DISCONTINUED
+
+Because Someone Don't Respect The [RULES](RULES.md)
+
 # Feature
 
 - Encrypt URL

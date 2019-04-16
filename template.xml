@@ -3,7 +3,7 @@
 <html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>&lt;!--/**
 *
 * Created By Anas RAR
-* NihLink v2.5.4
+* NihLink v2.6.5
 * Author : Anas RAR
 * Date	 : 10 April 2019
 * URL 	 : anasrar.github.io
@@ -86,7 +86,7 @@ body#layout .layouthide {display:none}
 ]]></b:skin>
 
 <b:template-skin><![CDATA[
-body#layout:before{content:"NihLink v2.5.4";position:absolute;top:33px;right:7px;z-index:1;padding:10px 20px;font-size:18px;font-family:sans-serif;color:#fff;background: #007bff}
+body#layout:before{content:"NihLink v2.6.5";position:absolute;top:33px;right:7px;z-index:1;padding:10px 20px;font-size:18px;font-family:sans-serif;color:#fff;background: #007bff}
 body#layout {background-color: #fff; border: 0}
 body#layout div.section {background-color: #fff}
 body#layout .add_widget a {color: #007bff}

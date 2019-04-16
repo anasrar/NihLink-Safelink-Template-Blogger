@@ -36,7 +36,7 @@ d[k>>>24]^e[n>>>16&255]^j[g>>>8&255]^l[h&255]^c[p++],n=d[n>>>24]^e[g>>>16&255]^j
 /*
 *
 * Created By Anas RAR
-* NihLink v2.5.4
+* NihLink v2.6.5
 * Author : Anas RAR
 * Date	 : 10 April 2019
 * URL 	 : anasrar.github.io
